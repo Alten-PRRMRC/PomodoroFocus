@@ -1,4 +1,9 @@
 <section>
+  <section>
+    <button (click)="setTimer(1500000)">Tomato</button>
+    <button (click)="setTimer(300000)">Short pause</button>
+    <button (click)="setTimer(900000)">Long pause</button> 
+  </section>
   <h2>
     @if(isStarted){
     {{ timer | async | date:'mm:ss' }}

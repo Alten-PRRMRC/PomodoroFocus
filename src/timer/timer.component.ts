@@ -52,4 +52,11 @@ export class TimerComponent {
     this.labelStatus = this.isStarted ? "Stop" : "Start"; // Change the label in the button
   }
 
+  setTimer(millis: number){ // Function that resets the following values and is invoked when switching modes.
+    this.initialMillis = millis;
+    this.millis = this.initialMillis;
+    this.timer = this.getTimer; 
+    this.timerToggle(false); // Stop timer when switching modes.
+  }
+
 }
