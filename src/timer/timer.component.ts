@@ -21,12 +21,17 @@ export class TimerComponent {
   // Timer shown when running
   timer: Observable<number>;
 
-  constructor() {
-    this.initialMillis = TOMATO_TIME;
-    this.millis = this.initialMillis;
+    constructor() { // Initialize values or retrieve them from local storage if available.
+    const initialMillis = localStorage.getItem("initialMillis");
+    const millis = localStorage.getItem("millis");
+    const isStarted = localStorage.getItem("isStarted");
+    const labelStatus = localStorage.getItem("labelStatus");
+
+    this.initialMillis = initialMillis ? JSON.parse(initialMillis) : TOMATO_TIME;
+    this.millis = millis && JSON.parse(millis) >= 0 ? JSON.parse(millis) : this.initialMillis;
     this.timer = this.getTimer;
-    this.isStarted = false;
-    this.labelStatus = "Start";
+    this.isStarted = isStarted ? JSON.parse(isStarted) : false;
+    this.labelStatus = labelStatus ? JSON.parse(labelStatus) : "Start";
   }
 
   get getTimer(){
@@ -35,9 +40,10 @@ export class TimerComponent {
         tap({ // An extension to the observables that enables us to perform actions whenever a change occurs.
           next: () => { // Runs each time the next value is emitted.
             this.millis -= 1000; // Decrease timer of 1 second
+            this.save(); // Save the current state
           },
           finalize: () => { // When the Observable has finished
-            this.timerToggle(); // Stop the timer, assuming it has already started.
+            this.timerToggle(); // Stop the timer, assuming it has already started and save the current state
           }}),
         map(_ => this.millis), // We assign the timer value to the millis.
         takeWhile(n => n > -1000) // Continue until the timer has expired
@@ -50,6 +56,7 @@ export class TimerComponent {
     }
     this.isStarted = status; // We display the value of the Observable instead of millis, and vice versa
     this.labelStatus = this.isStarted ? "Stop" : "Start"; // Change the label in the button
+    this.save();
   }
 
   setTimer(millis: number){ // Function that resets the following values and is invoked when switching modes.
@@ -57,6 +64,13 @@ export class TimerComponent {
     this.millis = this.initialMillis;
     this.timer = this.getTimer; 
     this.timerToggle(false); // Stop timer when switching modes.
+  }
+
+  private save(){
+    localStorage.setItem("initialMillis", JSON.stringify(this.initialMillis));
+    localStorage.setItem("millis", JSON.stringify(this.millis));
+    localStorage.setItem("isStarted", JSON.stringify(this.isStarted));
+    localStorage.setItem("labelStatus", JSON.stringify(this.labelStatus));
   }
 
 }
