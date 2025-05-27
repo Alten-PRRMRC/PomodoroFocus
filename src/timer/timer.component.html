@@ -1,1 +1,10 @@
-<p>timer works!</p>
+<section>
+  <h2>
+    @if(isStarted){
+    {{ timer | async | date:'mm:ss' }}
+  } @else {
+    {{ millis | date:'mm:ss' }}
+  }
+  </h2>
+  <button (click)="timerToggle()">{{ labelStatus }}</button>
+</section>
