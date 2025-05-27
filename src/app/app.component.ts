@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ResponsiveComponent } from "./shared/responsive/responsive.component";
-import { TimerComponent } from "../timer/timer.component";
+import { TimerComponent } from "./timer/timer.component";
 
 @Component({
   selector: 'app-root',

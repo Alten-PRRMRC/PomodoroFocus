@@ -43,6 +43,7 @@ export class TimerComponent {
             this.save(); // Save the current state
           },
           finalize: () => { // When the Observable has finished
+            if(this.millis > 1) return;
             this.timerToggle(); // Stop the timer, assuming it has already started and save the current state
           }}),
         map(_ => this.millis), // We assign the timer value to the millis.
