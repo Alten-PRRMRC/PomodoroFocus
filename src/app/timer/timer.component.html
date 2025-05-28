@@ -1,8 +1,8 @@
 <section>
   <section>
-    <button (click)="setTimer(1500000)">Tomato</button>
-    <button (click)="setTimer(300000)">Short pause</button>
-    <button (click)="setTimer(900000)">Long pause</button> 
+    <button (click)="setTimer(1500000, true)">Tomato</button>
+    <button (click)="setTimer(300000, true, 0.5)">Short pause</button>
+    <button (click)="setTimer(900000, true, 2)">Long pause</button> 
   </section>
   <h2>
     @if(isStarted){

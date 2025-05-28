@@ -3,6 +3,9 @@ import { AsyncPipe, DatePipe } from '@angular/common';
 import {timer, map, takeWhile, type Observable, tap} from 'rxjs';
 
 const TOMATO_TIME = 1500000; // Set the initial timer for 25 minutes
+const SHORT_PAUSE = 300000; // Set short break timer for 5 minutes
+const LONG_PAUSE = 900000; // Set long break timer for 15 minutes
+
 @Component({
   selector: 'app-timer',
   imports: [AsyncPipe, DatePipe],
@@ -20,18 +23,22 @@ export class TimerComponent {
   initialMillis: number;
   // Timer shown when running
   timer: Observable<number>;
+  // Next mode, integer is tomato, float is normal pause, pair integer is long pause
+  nextMode: number;
 
     constructor() { // Initialize values or retrieve them from local storage if available.
     const initialMillis = localStorage.getItem("initialMillis");
     const millis = localStorage.getItem("millis");
     const isStarted = localStorage.getItem("isStarted");
     const labelStatus = localStorage.getItem("labelStatus");
-
+    const nextMode = localStorage.getItem("nextMode");
+    
     this.initialMillis = initialMillis ? JSON.parse(initialMillis) : TOMATO_TIME;
     this.millis = millis && JSON.parse(millis) >= 0 ? JSON.parse(millis) : this.initialMillis;
     this.timer = this.getTimer;
     this.isStarted = isStarted ? JSON.parse(isStarted) : false;
     this.labelStatus = labelStatus ? JSON.parse(labelStatus) : "Start";
+    this.nextMode = nextMode ? JSON.parse(nextMode) : 0;
   }
 
   get getTimer(){
@@ -44,11 +51,27 @@ export class TimerComponent {
           },
           finalize: () => { // When the Observable has finished
             if(this.millis > 1) return;
-            this.timerToggle(); // Stop the timer, assuming it has already started and save the current state
+            this.changeMode(); // Stop the timer, change mode and save the current state 
           }}),
         map(_ => this.millis), // We assign the timer value to the millis.
         takeWhile(n => n > -1000) // Continue until the timer has expired
       );
+  }
+
+  changeMode(){
+    this.nextMode += 0.5;
+    if (this.nextMode >= 2.5) {
+      this.nextMode = 0;
+    }
+    if (this.nextMode % 1 === 0){
+      if(this.nextMode > 2){
+        this.setTimer(LONG_PAUSE);
+      } 
+      else
+      this.setTimer(TOMATO_TIME);
+    } 
+    else
+    this.setTimer(SHORT_PAUSE);
   }
 
   timerToggle(status = !this.isStarted) {
@@ -60,7 +83,10 @@ export class TimerComponent {
     this.save();
   }
 
-  setTimer(millis: number){ // Function that resets the following values and is invoked when switching modes.
+  setTimer(millis: number, isChangedByUser = false, mode = 0){ // Function that resets the following values and is invoked when switching modes.
+    if(isChangedByUser){ // If user change mode, then reset mode
+      this.nextMode = mode;
+    }
     this.initialMillis = millis;
     this.millis = this.initialMillis;
     this.timer = this.getTimer; 
@@ -68,6 +94,7 @@ export class TimerComponent {
   }
 
   private save(){
+    localStorage.setItem("nextMode", JSON.stringify(this.nextMode));
     localStorage.setItem("initialMillis", JSON.stringify(this.initialMillis));
     localStorage.setItem("millis", JSON.stringify(this.millis));
     localStorage.setItem("isStarted", JSON.stringify(this.isStarted));
