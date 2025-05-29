@@ -2,14 +2,14 @@
   <section>
     <button (click)="setTimer(1500000, true)">Tomato</button>
     <button (click)="setTimer(300000, true, 0.5)">Short pause</button>
-    <button (click)="setTimer(900000, true, 2)">Long pause</button> 
+    <button (click)="setTimer(900000, true, 2)">Long pause</button>
   </section>
   <h2>
-    @if(isStarted){
-    {{ timer | async | date:'mm:ss' }}
-  } @else {
-    {{ millis | date:'mm:ss' }}
-  }
+    @if (isStarted) {
+      {{ timer | async | date: "mm:ss" }}
+    } @else {
+      {{ millis | date: "mm:ss" }}
+    }
   </h2>
   <button (click)="timerToggle()">{{ labelStatus }}</button>
 </section>

@@ -1,7 +1,19 @@
 body {
   display: flex;
   width: 100%;
-  font: 18px/1.5 -apple-system,BlinkMacSystemFont,"Avenir Next",Avenir,"Nimbus Sans L",Roboto,Noto,"Segoe UI",Arial,Helvetica,"Helvetica Neue",sans-serif;
+  font:
+    18px/1.5 -apple-system,
+    BlinkMacSystemFont,
+    "Avenir Next",
+    Avenir,
+    "Nimbus Sans L",
+    Roboto,
+    Noto,
+    "Segoe UI",
+    Arial,
+    Helvetica,
+    "Helvetica Neue",
+    sans-serif;
   margin: 100px auto;
   color: white;
   background-color: #ba4949;
