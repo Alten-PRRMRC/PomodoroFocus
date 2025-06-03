@@ -1,22 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { type ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ResponsiveComponent } from './responsive.component';
+import { ResponsiveComponent } from "./responsive.component";
 
-describe('ResponsiveComponent', () => {
-  let component: ResponsiveComponent;
-  let fixture: ComponentFixture<ResponsiveComponent>;
+describe("ResponsiveComponent", () => {
+	let component: ResponsiveComponent;
+	let fixture: ComponentFixture<ResponsiveComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ResponsiveComponent],
-    }).compileComponents();
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			imports: [ResponsiveComponent],
+		}).compileComponents();
 
-    fixture = TestBed.createComponent(ResponsiveComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+		fixture = TestBed.createComponent(ResponsiveComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it("should create", () => {
+		expect(component).toBeTruthy();
+	});
 });

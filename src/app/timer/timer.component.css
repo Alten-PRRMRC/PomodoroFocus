@@ -1,36 +1,36 @@
 button {
-  border: none;
-  font-weight: bold;
-  padding: 10px;
-  border-radius: 8px;
-  color: #db4444;
-  width: 300px;
+	border: none;
+	font-weight: bold;
+	padding: 10px;
+	border-radius: 8px;
+	color: #db4444;
+	width: 300px;
 }
 
 button:hover {
-  background-color: rgba(255, 255, 255);
-  font-weight: bold;
+	background-color: rgba(255, 255, 255);
+	font-weight: bold;
 }
 
 section > section > button {
-  width: auto;
-  margin: 20px;
-  background-color: rgba(0, 0, 0, 0.2);
-  color: white;
+	width: auto;
+	margin: 20px;
+	background-color: rgba(0, 0, 0, 0.2);
+	color: white;
 }
 
 section > section > button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 section {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
 
 section > section {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
