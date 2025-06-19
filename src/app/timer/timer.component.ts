@@ -1,6 +1,7 @@
 import { AsyncPipe, DatePipe } from "@angular/common";
 import { Component } from "@angular/core";
 import { type Observable, map, takeWhile, tap, timer } from "rxjs";
+import { Mode } from "./mode.enum";
 
 const TOMATO_TIME = 1500000; // Set the initial timer for 25 minutes
 const SHORT_PAUSE = 300000; // Set short break timer for 5 minutes
@@ -69,9 +70,9 @@ export class TimerComponent {
 	}
 
 	changeMode() {
-		this.nextMode += 0.5;
-		if (this.nextMode >= 2.5) {
-			this.nextMode = 0;
+		this.nextMode += Mode.ShortPause;
+		if (this.nextMode >= Mode.Reset) {
+			this.nextMode = Mode.Tomato;
 		}
 		if (this.nextMode % 1 === 0) {
 			// Check if is float nextMode
