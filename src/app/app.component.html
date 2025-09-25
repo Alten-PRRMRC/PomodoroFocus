@@ -1,4 +1,28 @@
-<app-responsive>
-  <h1>Tomato Timing!</h1>
-  <app-timer />
-</app-responsive>
+<div class="min-h-screen flex items-center justify-center bg-base-200">
+  <div class="text-center space-y-6">
+    <h1 class="text-4xl font-bold">{{ title }}</h1>
+    <p class="text-base-content/70 max-w-prose mx-auto">
+      Stay focused with short, effective sprints.
+    </p>
+    <div class="mt-4">
+      <app-timer />
+    </div>
+    <section class="flex">
+      <p class="text-base-content/70 max-w-prose mx-auto mr-2">
+        Made with
+      </p>
+      <app-icon-heart class="w-[24px] h-[24px]"></app-icon-heart>
+      <p class="text-base-content/70 max-w-prose mx-auto ml-2">
+        and hosted on
+        <a class="link" href="https://github.com/Alten-PRRMRC/PomodoroFocus">GitHub</a>.
+      </p>
+    </section>
+    <label class="btn btn-ghost swap swap-rotate flex-1">
+      <input aria-label="Toggle theme" type="checkbox" value="halloween" class="theme-controller" [formControl]="themeController"
+             (change)="onCheckboxChange($event)">
+      <app-icon-sun
+        class="swap-off size-[2em] fill-current"></app-icon-sun>
+      <app-icon-moon class="swap-on size-[2em] fill-current"></app-icon-moon>
+    </label>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<section class="flex flex-col items-center gap-6">
+  <div class="join">
+    <button class="btn join-item btn-secondary font-bold hover:text-accent-content active:text-accent-content"
+            (click)="setTimer(1500000)">
+      Tomato
+    </button>
+    <button class="btn join-item btn-secondary font-bold hover:text-accent-content active:text-accent-content"
+            (click)="setTimer(300000)">
+      Short pause
+    </button>
+    <button class="btn join-item btn-secondary font-bold hover:text-accent-content active:text-accent-content"
+            (click)="setTimer(900000)">
+      Long pause
+    </button>
+  </div>
+
+  <h2 class="text-5xl font-bold text-info-content h-[50px]">
+    @if (isStarted.value) {
+      {{ timer | async | date: "mm:ss" }}
+    } @else {
+      {{ millis | date: "mm:ss" }}
+    }
+  </h2>
+
+  <button class="btn btn-wide btn-outline border-2 border-primary hover:bg-primary hover:text-primary-content font-bold"
+          (click)="timerToggle()">
+    {{ labelStatus }}
+  </button>
+</section>
