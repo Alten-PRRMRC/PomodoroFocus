@@ -1,6 +1,6 @@
 import { AsyncPipe, DatePipe } from "@angular/common";
 import { Component } from "@angular/core";
-import {type Observable, map, takeWhile, timer, BehaviorSubject, switchMap, of, finalize} from "rxjs";
+import { type Observable, map, takeWhile, timer, BehaviorSubject, switchMap, of, finalize } from "rxjs";
 import { Mode } from "./mode.enum";
 
 const TOMATO_TIME = 1500000; // Set the initial timer for 25 minutes

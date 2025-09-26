@@ -45,7 +45,8 @@
                 "scripts": true,
                 "styles": true,
                 "fonts": false
-              }
+              },
+              "serviceWorker": "ngsw-config.json"
 						},
 						"development": {
               "ssr": false,
