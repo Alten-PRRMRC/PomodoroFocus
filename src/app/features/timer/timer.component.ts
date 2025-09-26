@@ -76,14 +76,14 @@ export class TimerComponent {
 
   changeMode() {
     this.nextMode += Mode.ShortPause;
-    if (this.nextMode >= Mode.Reset) {
+    if (this.nextMode > Mode.Reset) {
       this.nextMode = Mode.Tomato;
     }
-    if (this.nextMode % 1 === 0) {
+    if (this.nextMode % 1 !== 0) {
       // Check if is float nextMode
-      this.setTimer(this.nextMode === 2 ? LONG_PAUSE : TOMATO_TIME);
+      this.setTimer(this.nextMode === Mode.Reset ? LONG_PAUSE : SHORT_PAUSE);
     } else {
-      this.setTimer(SHORT_PAUSE);
+      this.setTimer(TOMATO_TIME);
     }
   }
 
