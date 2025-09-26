@@ -1,0 +1,81 @@
+{
+  "configVersion": 1,
+  "timestamp": 1758879262689,
+  "index": "https://alten-prrmrc.github.io/PomodoroFocus/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://alten-prrmrc.github.io/PomodoroFocus/favicon.ico",
+        "https://alten-prrmrc.github.io/PomodoroFocus/index.html",
+        "https://alten-prrmrc.github.io/PomodoroFocus/main-YTOYLM6S.js",
+        "https://alten-prrmrc.github.io/PomodoroFocus/manifest.webmanifest",
+        "https://alten-prrmrc.github.io/PomodoroFocus/polyfills-5CFQRCPP.js",
+        "https://alten-prrmrc.github.io/PomodoroFocus/styles-562H3QBA.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://alten-prrmrc.github.io/PomodoroFocus/PomodoroTiming.png",
+        "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-128x128.png",
+        "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-144x144.png",
+        "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-152x152.png",
+        "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-192x192.png",
+        "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-384x384.png",
+        "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-512x512.png",
+        "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-72x72.png",
+        "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://alten-prrmrc.github.io/PomodoroFocus/PomodoroTiming.png": "67c844291bac1d2f5b2dd8171e05fed090b9be22",
+    "https://alten-prrmrc.github.io/PomodoroFocus/favicon.ico": "506e0c5f03c541c6e63d88b927a840d428efcf6a",
+    "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-128x128.png": "bc274e55f3c8d42428cf9383e12d97726cc5c13d",
+    "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-144x144.png": "8db291963790c9a2be8745a1b54599868140db88",
+    "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-152x152.png": "2098775ba4491619b6f88ecc7c2d8785d2d0095c",
+    "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-192x192.png": "2090b2e472309e77cc5e50fe23c2173af32da9b2",
+    "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-384x384.png": "9b67cca5d52c539dc2ae97d710f2217bf5862e8e",
+    "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-512x512.png": "93cb70835f4efa127db839d24b6d6ac193c59ce1",
+    "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-72x72.png": "94d0e5ddea7c1df02cd247123a79b1ee085eb8b0",
+    "https://alten-prrmrc.github.io/PomodoroFocus/icons/icon-96x96.png": "14757e3c9e1be527ec96929c2b929a83436737d0",
+    "https://alten-prrmrc.github.io/PomodoroFocus/index.html": "4535a2e67b98f4f93e6f97fb83029e8ec29bd56a",
+    "https://alten-prrmrc.github.io/PomodoroFocus/main-YTOYLM6S.js": "8d3dde88395d6c8fa575d985ba28b57e28f73f65",
+    "https://alten-prrmrc.github.io/PomodoroFocus/manifest.webmanifest": "737b0f5d53e663896b75d178f7629245fc2b1568",
+    "https://alten-prrmrc.github.io/PomodoroFocus/polyfills-5CFQRCPP.js": "f2241e9a25858f895ce299d15f6f22e849e2fd72",
+    "https://alten-prrmrc.github.io/PomodoroFocus/styles-562H3QBA.css": "de0e34df96aa8849af83df7b2e6fb1505d388518"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
